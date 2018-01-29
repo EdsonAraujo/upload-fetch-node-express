@@ -1,0 +1,17 @@
+html
+    head
+        title Upload com Fetch
+
+    body
+        input(type="file", id="file")
+
+        script.
+            let file = document.getElementById('file')
+
+            file.addEventListener('change', function(e){
+                console.log(file.files[0])
+                fetch('/upload', {
+                    method: 'post',
+                    body: file.files[0]
+                })
+            })
